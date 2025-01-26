@@ -1,4 +1,4 @@
-# library class
+
 
 from book import Book
 class Library():
@@ -20,7 +20,8 @@ class Library():
             self.books.remove(book)
             print("book deleted")
         else:
-            print("book not exist")
+            raise ValueError("book not exist")
+        
         
 
 
@@ -33,11 +34,14 @@ class Library():
 
 
 
-# l1 = Library()
-# b1 = Book("ali","med",1000)
-# l1.ajouter_livre(b1)
-# l1.lister_livres()
+l1 = Library()
+b1 = Book("ali","med",1000)
+b3 = Book("ali","med",1000)
+l1.ajouter_livre(b1)
+l1.lister_livres()
+try:
+    l1.supprimer_livre(b3)
+except ValueError as e:
+    print(e)    
 
-# l1.supprimer_livre(b1)
-
-# l1.lister_livres()
+l1.lister_livres()
