@@ -15,14 +15,15 @@ class Library():
             print(f"Book '{book.titre}' added.")
 
 
-    def supprimer_livre(self,book):
-        if any(b.titre == book.titre for b in self.books):
-            self.books.remove(book)
-            print("book deleted")
-        else:
-            print("book not exist")
-        
-
+    def supprimer_livre(self,titre):
+            for book in self.books:
+                if book.titre == titre:
+                    self.books.remove(book)
+                    print("book deleted")
+                else:
+                    # print("book not exist")
+                    raise ValueError("Book not exists")
+                
 
     def lister_livres(self):
         if not self.books:
@@ -33,11 +34,14 @@ class Library():
 
 
 
-# l1 = Library()
-# b1 = Book("ali","med",1000)
-# l1.ajouter_livre(b1)
-# l1.lister_livres()
+l1 = Library()
+b1 = Book("ali","med",1000)
+b2 = Book("book 2","med",1000)
 
-# l1.supprimer_livre(b1)
-
-# l1.lister_livres()
+l1.ajouter_livre(b1)
+l1.lister_livres()
+try:
+    l1.supprimer_livre("aklsdj")
+except ValueError as e :
+    print(e)
+l1.lister_livres()
