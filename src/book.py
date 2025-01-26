@@ -6,8 +6,8 @@ class Book():
         self.auteur = auteur
         self.annee_publication = annee_publication
 
-    def affiche_livre(self):
-        print(f"{self.titre} by {self.auteur} - year of pub : {self.annee_publication}")
+    # def affiche_livre(self):
+    #     print(f"{self.titre} by {self.auteur} - year of pub : {self.annee_publication}")
 
     
 
